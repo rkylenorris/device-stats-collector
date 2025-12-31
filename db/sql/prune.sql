@@ -1,6 +1,7 @@
 DELETE FROM net_samples
 WHERE
-    rowid NOT IN (
+    device_name = ?
+    AND rowid NOT IN (
         SELECT
             rowid
         FROM

@@ -8,6 +8,7 @@ import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from dotenv import load_dotenv
+import socket
 
 
 load_dotenv()
@@ -59,7 +60,7 @@ def prune_db(conn: sqlite3.Connection):
 
     max_records = int(os.getenv("MAX_RECORDS", "300"))
 
-    script_params = (max_records,)
+    script_params = (socket.gethostname(), max_records,)
 
     try:
         conn.execute(
@@ -77,6 +78,7 @@ def prune_db(conn: sqlite3.Connection):
 @dataclass
 class NetworkRecord:
 
+    device_name: str
     timestamp: float
     adapter: str
     down_mbps: float

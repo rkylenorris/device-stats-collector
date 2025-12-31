@@ -1,4 +1,5 @@
 CREATE TABLE IF NOT EXISTS net_samples (
+    device_name TEXT,
     timestamp REAL,
     adapter TEXT,
     down_mbps REAL,
@@ -7,4 +8,4 @@ CREATE TABLE IF NOT EXISTS net_samples (
     tx_bytes INTEGER
 );
 
-CREATE INDEX IF NOT EXISTS idx_net_time ON net_samples (timestamp);
+CREATE INDEX IF NOT EXISTS idx_net_time ON net_samples (device_name, timestamp);
