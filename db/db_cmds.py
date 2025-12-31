@@ -145,6 +145,3 @@ def insert_records(conn: sqlite3.Connection, records: list[NetworkRecord]) -> No
         conn.commit()
     except Exception as e:
         save_fallback_records(records=records)
-        raise Exception(
-            f"Error inserting records, saving to fallback json: {e}"
-        )
