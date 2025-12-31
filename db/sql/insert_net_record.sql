@@ -1,0 +1,4 @@
+INSERT INTO
+    net_samples
+VALUES
+    (?, ?, ?, ?, ?, ?)
