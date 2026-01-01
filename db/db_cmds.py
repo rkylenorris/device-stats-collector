@@ -60,7 +60,9 @@ def prune_db(conn: sqlite3.Connection):
 
     max_records = int(os.getenv("MAX_RECORDS", "300"))
 
-    script_params = (socket.gethostname(), max_records,)
+    device_name = socket.gethostname()
+
+    script_params = (device_name, device_name, max_records,)
 
     try:
         conn.execute(
