@@ -6,6 +6,8 @@ WHERE
             rowid
         FROM
             net_samples
+        WHERE
+            device_name = ?
         ORDER BY
             timestamp DESC
         LIMIT
